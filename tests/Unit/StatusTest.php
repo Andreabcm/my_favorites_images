@@ -16,6 +16,7 @@ class StatusTest extends TestCase
     public function test_check_connection_status()
     {
         $response = $this->get('/');
+        
         $response->assertStatus(200);
     }
 }

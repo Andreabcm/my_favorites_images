@@ -35,7 +35,12 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = request()->validate([
+            'image' =>'',
+            'title' =>''
+        ]); 
+
+        Image::create($image);
     }
 
     /**
