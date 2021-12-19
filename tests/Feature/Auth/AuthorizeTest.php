@@ -58,7 +58,9 @@ class AuthorizeTest extends TestCase
             'password' => 'wrong-password',
         ]);
 
+        $this->assertGuest();
     }
+
 
 }
 
