@@ -44,6 +44,8 @@ class ImageController extends Controller
 
         Image::create($image);
 
+        return redirect()->route('home');
+
 
     }
 

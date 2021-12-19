@@ -16,6 +16,6 @@ class Image extends Model
 
    /*  public function user()
     {
-        return $this->belongsTo(User::class, 'image', 'title', 'updated_at', 'created_at');
+        return $this->belongsTo(User::class);
     } */
 }

@@ -52,15 +52,11 @@ class CrudTest extends TestCase
             'title' => 'test title'
         ]);
 
-        $response->assertOk();
         $this->assertCount(1, Image::all());
 
-        $post = Image::first();
+        $image = Image::first();
 
-        $this->assertEquals($post->image, 'test image');
-        $this->assertEquals($post->title, 'test title');
-
-
+        $response->assertRedirect('home');
 
     }
 }
