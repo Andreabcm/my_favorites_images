@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -20,6 +21,19 @@ class AuthorizeTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_confirmation_of_user_login()  
+    {
+        $user = User::factory()->create();
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $this->assertAuthenticated();
+        $response->assertRedirect('/home');
+    }
+
 }
 
 
