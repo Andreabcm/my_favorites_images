@@ -17,7 +17,7 @@ class CrudTest extends TestCase
 
         Image::factory(4)->create();
 
-        $response = $this->get('/');
+        $response = $this->get('home');
 
         $response->assertOk();
 
