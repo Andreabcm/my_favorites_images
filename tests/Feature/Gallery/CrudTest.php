@@ -15,14 +15,20 @@ class CrudTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        Image::all();
+        Image::factory(4)->create();
 
         $response = $this->get('/');
 
+        $response->assertOk();
+
+        Image::all();
+        
         $response->assertStatus(200)
             ->assertViewIs('home');
 
     }
+
+    
     public function test_a_post_can_be_created()
     {
         $this->withoutExceptionHandling();
