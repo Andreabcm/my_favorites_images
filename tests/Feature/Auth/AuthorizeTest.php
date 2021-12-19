@@ -35,7 +35,7 @@ class AuthorizeTest extends TestCase
         $response->assertRedirect('/home');
     }
 
-    public function test_valid_email_confirmation()
+    public function test_invalid_email_confirmation()
     {
         $user = User::factory()->create();
 
@@ -47,6 +47,8 @@ class AuthorizeTest extends TestCase
 
         $this->assertGuest();
     }
+
+  
 
 }
 
