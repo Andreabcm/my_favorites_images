@@ -25,13 +25,27 @@ class AuthorizeTest extends TestCase
     public function test_confirmation_of_user_login()  
     {
         $user = User::factory()->create();
-        $response = $this->post('/login', [
+        $response = $this->post('/login', 
+        [
             'email' => $user->email,
             'password' => 'password',
         ]);
 
         $this->assertAuthenticated();
         $response->assertRedirect('/home');
+    }
+
+    public function test_valid_email_confirmation()
+    {
+        $user = User::factory()->create();
+
+        $this->post('/login',
+        [
+            'email' => 'wrong-$user->email',
+            'password' => 'password',
+        ]);
+
+        $this->assertGuest();
     }
 
 }
