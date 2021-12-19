@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use App\Models\Image;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -16,7 +15,8 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory()
+            'title' => $this->faker->company(),
+            'image' => $this->faker->image(),
         ];
     }
 }

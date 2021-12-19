@@ -10,6 +10,19 @@ use Tests\TestCase;
 class CrudTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function test_list_of_posts_can_be_retrieved()
+    {
+        $this->withoutExceptionHandling();
+
+        Image::all();
+
+        $response = $this->get('/');
+
+        $response->assertStatus(200)
+            ->assertViewIs('home');
+
+    }
     public function test_a_post_can_be_created()
     {
         $this->withoutExceptionHandling();

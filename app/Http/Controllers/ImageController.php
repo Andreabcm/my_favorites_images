@@ -14,7 +14,7 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -41,6 +41,8 @@ class ImageController extends Controller
         ]); 
 
         Image::create($image);
+
+
     }
 
     /**
