@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\ImageController::class, 'index'])->name('home');
-Route::post('/images', [App\Http\Controllers\ImageController::class, 'store'])->name('store');
+Route::get('/home', [ImageController::class, 'index'])->name('home');
+Route::post('/images', [ImageController::class, 'store'])->name('store');
+Route::get('/show/{id}', [ImageController::class, 'show'])->name('show');
 

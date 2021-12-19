@@ -28,7 +28,20 @@ class CrudTest extends TestCase
 
     }
 
-    
+    public function test_a_post_can_be_retrieved()
+    {
+        $this->withoutExceptionHandling();
+
+        $image = Image::factory(4)->create();
+
+        $images = $image[1];
+
+        $response = $this->get(route('show', $images->id));
+
+        $response->assertViewIs('show');
+
+    }
+
     public function test_a_post_can_be_created()
     {
         $this->withoutExceptionHandling();
