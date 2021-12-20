@@ -1,34 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<table class="table table-light">
-    
-    <thead class="thead-light">
-        <tr>
-            <th>id</th>
-            <th>Image</th>
-            <th>Title</th>
-        </tr>
-    </thead>
 
     <tbody>
-        @foreach($images as $image)
-        <tr>
-    
-            <td>
-            <a href="{{ route('show', ['id' => $image->id]) }}">
-                <img class="imgCard" src="{{ asset('storage') . '/' . $image->image }}" alt="">
-            </a>
-            </td>
-            
-            <td>{{ $image->image}}</td>
-            <td>{{ $image->title}}</td>
-        
-    
-        </tr>
+        @foreach ($images as $image)
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ $image->image }}" alt="Card image cap">
+                    <div class="card-body">
+                            <h5 class="card-title">id.{{ $image->id }} {{ $image->title }}</h5>
+                    </div>
+            </div>
         @endforeach
-    </tbody>
-</table>
-
 
 @endsection
+

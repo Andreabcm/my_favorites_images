@@ -23,19 +23,19 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Image::factory()->create([
-         /*    'user_id' => '3', */
+        /*     'user_id' => '3', */
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB9aErbX4vxT8UVQPF94YoVrFDKb2zeRZXqQ&usqp=CAU',            
             'title' => 'Muebles'
         ]);
 
         Image::factory()->create([
-      /*       'user_id' => '2', */
+        /*     'user_id' => '2', */
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB9aErbX4vxT8UVQPF94YoVrFDKb2zeRZXqQ&usqp=CAU',            
             'title' => 'Muebles'
         ]);
 
         Image::factory()->create([
-    /*         'user_id' => '3', */
+     /*        'user_id' => '3', */
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB9aErbX4vxT8UVQPF94YoVrFDKb2zeRZXqQ&usqp=CAU',            
             'title' => 'Muebles'
         ]);
