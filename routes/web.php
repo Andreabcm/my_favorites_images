@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [ImageController::class, 'index'])->name('home');
+Route::post('/images', [ImageController::class, 'store'])->name('store');
+Route::get('/show/{id}', [ImageController::class, 'show'])->name('show');
+

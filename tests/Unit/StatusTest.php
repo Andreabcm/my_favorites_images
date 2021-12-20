@@ -1,21 +1,22 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ExampleTest extends TestCase
+class StatusTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function test_example()
+    public function test_check_connection_status()
     {
         $response = $this->get('/');
-
+        
         $response->assertStatus(200);
     }
 }
