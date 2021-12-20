@@ -19,10 +19,9 @@ class CrudTest extends TestCase
 
         $response = $this->get('home');
 
-        $response->assertOk();
-
         Image::all();
-        
+
+        $response->assertOk();
         $response->assertStatus(200)
             ->assertViewIs('home');
 
