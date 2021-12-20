@@ -14,7 +14,9 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        $images = Image::all();
+
+        return view('home', compact('images'));
     }
 
     /**
@@ -35,7 +37,16 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = request()->validate([
+            'image' =>'',
+            'title' =>''
+        ]); 
+
+        Image::create($image);
+
+        return redirect()->route('home');
+
+
     }
 
     /**
@@ -46,7 +57,7 @@ class ImageController extends Controller
      */
     public function show(Image $image)
     {
-        //
+        return view('show', compact('image'));
     }
 
     /**
