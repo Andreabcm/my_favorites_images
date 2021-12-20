@@ -26,7 +26,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        return view('create');
+        
     }
 
     /**
@@ -37,6 +37,7 @@ class ImageController extends Controller
      */
     public function store()
     {
+        $image = request()->except('_token');
         $data = request()->validate([
             'image' =>'',
             'title' =>''

@@ -22,7 +22,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [ImageController::class, 'index'])->name('home');
-Route::get('/create', [ImageController::class, 'create'])->name('create');
 Route::post('/images', [ImageController::class, 'store'])->name('store');
 Route::get('/show/{id}', [ImageController::class, 'show'])->name('show');
 Route::put('/images/{id}', [ImageController::class, 'update'])->name('update');
