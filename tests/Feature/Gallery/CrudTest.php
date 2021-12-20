@@ -19,9 +19,10 @@ class CrudTest extends TestCase
 
         $response = $this->get('home');
 
-        Image::all();
-
         $response->assertOk();
+
+        Image::all();
+        
         $response->assertStatus(200)
             ->assertViewIs('home');
 
@@ -53,12 +54,35 @@ class CrudTest extends TestCase
 
         $this->assertCount(1, Image::all());
 
-        $data = Image::first();
+        $image = Image::first();
 
-        $this->assertEquals($data->image, 'test image');
-        $this->assertEquals($data->title, 'test title');
+        $this->assertEquals($image->image, 'test image');
+        $this->assertEquals($image->title, 'test title');
 
-        $response->assertRedirect('/images/' . $data->id);
+        $response->assertRedirect('/images/' . $image->id);
+
+    }
+
+    public function test_a_post_can_be_updated()
+    {
+        $this->withoutExceptionHandling();
+
+        $image = Image::factory(4)->create();
+
+        $response = $this->put('/images' . $image->id, 
+        [
+            'image' => 'test image',
+            'title' => 'test title'
+        ]);
+
+        $this->assertCount(1, Image::all());
+
+        $image = $image->fresh();
+
+        $this->assertEquals($image->image, 'test image');
+        $this->assertEquals($image->title, 'test title');
+
+        $response->assertRedirect('/images/' . $image->id);
 
     }
 }

@@ -35,16 +35,16 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        $image = request()->validate([
+        $data = request()->validate([
             'image' =>'',
             'title' =>''
         ]); 
 
-        $data = Image::create($image);
+        $image = Image::create($data);
 
-        return redirect('/images/' . $data->id);
+        return redirect('/images/' . $image->id);
 
 
     }
@@ -78,9 +78,16 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Image $image)
+    public function update(Image $image)
     {
-        //
+        $data = request()->validate([
+            'image' =>'',
+            'title' =>''
+        ]); 
+
+        $image->update($data);
+
+        return redirect('/images/' . $image->id);
     }
 
     /**
