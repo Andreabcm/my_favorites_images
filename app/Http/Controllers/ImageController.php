@@ -42,9 +42,9 @@ class ImageController extends Controller
             'title' =>''
         ]); 
 
-        Image::create($image);
+        $data = Image::create($image);
 
-        return redirect()->route('home');
+        return redirect('/images/' . $data->id);
 
 
     }

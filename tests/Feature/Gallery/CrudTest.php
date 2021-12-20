@@ -54,9 +54,12 @@ class CrudTest extends TestCase
 
         $this->assertCount(1, Image::all());
 
-        $image = Image::first();
+        $data = Image::first();
 
-        $response->assertRedirect('home');
+        $this->assertEquals($data->image, 'test image');
+        $this->assertEquals($data->title, 'test title');
+
+        $response->assertRedirect('/images/' . $data->id);
 
     }
 }
